@@ -1,4 +1,5 @@
 import Express from "express";
+
 import path from "path";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -8,28 +9,28 @@ const __dirname = dirname(__filename);
 
 const app = Express();
 
-app.set('views', path.join(__dirname, 'views'));
+// app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-// foe accessing the body of request
+// // foe accessing the body of request
 app.use(Express.urlencoded({ extended: true }));
 app.use(Express.json());
 
-// 2
+// // 2
 app.get("/", (req, res) => {
     // res.send("Hello World");
     // res.json({ "wish": "Hello World", "Date": new Date().toDateString });
+
     // sending status response
     // res.send(500, "Hello");
     // res.status(500).send("Hello this is 500");
-    // res.sendStatus(500).send("Hello World"); 
-    // res.download('index.js');
+    // res.sendStatus(500).send("Hello World");
 
     // rendering
-    // res.render("index");
-    // res.render("index", { name: "Bharathraj" })
+    res.render("/users/users");
+    res.render("index", { name: "Bharathraj" })
 })
 
-// 3
+// // 3
 // app.get("/auth/login", (req, res) => {
 //     res.send("login page");
 // })
@@ -38,7 +39,7 @@ app.get("/", (req, res) => {
 //     res.send("signup page");
 // })
 
-// 4
+// // 4
 // app.post("/auth/login", (req, res) => {
 //     const body = req.body;
 //     res.send(`login auth processing for : ${body.name} with password: ${body.password}`);
@@ -52,8 +53,9 @@ app.get("/", (req, res) => {
 import authRouter from "./routes/auth.js";
 
 app.use("/auth", authRouter);
+// app.use("/auth", authRouter);
 
-// 1
+// // 1
 app.listen(3000, () => {
     console.log(`Server is serving at port 3000`);
 })

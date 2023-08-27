@@ -2,17 +2,20 @@ import Express from "express";
 const router = Express.Router();
 
 // 4
-const middleWear = (req,res,next)=>{
+const middleWear = (req, res, next) => {
     console.log(req.originalUrl);
     next();
 }
 
 // 1
-// router.get("/login", (req, res) => {
-//     res.send("login page");
-// })
+router.get("/login/:name", (req, res) => {
+    const { name } = req.params;
+    console.log(name);
+    res.send("login page");
+    console.log("inside");
+})
 
-router.get("/signup", middleWear, (req, res) => {
+router.get("/signup", (req, res) => {
     res.send("signup page");
 })
 

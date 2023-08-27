@@ -12,20 +12,45 @@ function ParamFun(x, y) {
 }
 // console.log(ParamFun(10, 20));
 
-async function fetchData() {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        return null;
-    }
-}
-fetchData().then((value) => {
-    // console.log(value);
-});
+// async function fetchData() {
+//     try {
+//         const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+//         const data = await response.json();
+//         return data;
+//     } catch (error) {
+//         return null;
+//     }
+// }
+// fetchData().then((value) => {
+//     console.log(value);
+// });
 
 // console.log('Fetching data...');
+
+// const examplePromise = new Promise((resolve, reject) => {
+// });
+// examplePromise
+//     .then(result => {
+//     })
+//     .catch(error => {
+//     });
+
+
+// 
+// fetch('https://jsonplaceholder.typicode.com/posts/1')
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log(data);
+//     })
+//     .catch(error => {
+//     });
+
+
 
 async function* myGenerator(step) {
     await new Promise((resolve) => setTimeout(resolve, 10));
@@ -54,13 +79,12 @@ const gen = myGenerator(2);
 //         return gen.next();
 //     });
 
-
 // lambda function
 
 const LambdaFun = (x, y) => {
     return x + y;
 }
-console.log(LambdaFun(10, 20));
+// console.log(LambdaFun("bharath", 20));
 
 const AsyncLambdaFun = async () => {
     try {
